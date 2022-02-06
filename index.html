@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Shorter - Online Url Shortener</title>
+    <link rel="icon" href="images/icon.png" />
+    <!-- Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Cdn -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <!-- CSS STYLESHEETS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="stopScroll">
+    <!--*********************************************
+                      Loading Screen
+        ***********************************************-->
+    <div id="loadingScreen" class="loadingPage">
+      <h1>Please wait, loading page...</h1>
+      <div class="loading"></div>
+    </div>
+
+    <!--*********************************************
+                      Popup Card
+        ***********************************************-->
+
+    <div id="popup" class="popup hide">
+      <div class="row wrapper container p-0">
+        <div id="close">X</div>
+
+        <div class="text col-xl-6 col-lg-12">
+          <h1>This is a portfolio site</h1>
+          <p>
+            This website's purpose is to show what I'm capable off. The features
+            that have been finished are only limited to this page.
+            <br />
+            <br />
+            You'll find out that you can shorten your url link, manage it and
+            export it as a txt file below!
+
+            <br /><br />
+            Plus, feel free to play around with the viewport to see how this
+            site works across all devices! <br /><br />If you're looking to
+            contact me for work opportunities or looking for a coding buddy,
+            feel free to reach out to me via email at
+            <strong>AbNassif99@gmail.com</strong>. Feel free to check my other
+            projects on github
+            <a href="https://github.com/AbNassif">here</a>
+            <br /><br />
+            Thank you for your time, and I wish you the best of luck! and as
+            always, Happy Coding!
+          </p>
+        </div>
+        <div class="image col-xl-6 col-lg-12">
+          <h1>🚀Well look who ended up here!🚀</h1>
+          <img src="images/popup/lostperson.svg" alt="lostperson" />
+        </div>
+      </div>
+    </div>
+
+    <!--*********************************************
+                    HEADER SECTION
+    ***********************************************-->
+
+    <div class="bgImage"></div>
+
+    <header>
+      <!--*******************HEADER->NAVIGATION BAR*******************-->
+      <nav class="container navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand logo" href="#">SHORTER</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"> &#9776;</span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav w-100">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">Resources</a>
+              </li>
+              <li class="nav-item ms-auto">
+                <a class="nav-link">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link signUp greenBtn">Sign Up</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!--******************HEADER->MAIN SECTION*****************-->
+      <main class="d-flex container align-items-center">
+        <div class="mainText mb-4">
+          <h1>More than just <br />Shorter Links</h1>
+          <p>
+            Build your brand’s recognition and get detailed insights on how your
+            links are performing
+          </p>
+          <button class="signUp greenBtn">Sign Up</button>
+        </div>
+        <div class="mainImg">
+          <img
+            class="loadFirst"
+            src="images/main/mainImage.svg"
+            alt="main image"
+          />
+        </div>
+      </main>
+    </header>
+
+    <!--**********************************
+                MAIN TOOL SECTION
+      ************************************* -->
+
+    <section class="action mt-5">
+      <div class="actionWrapper container">
+        <div class="inputWrapper p-5">
+          <div class="input-group">
+            <input
+              id="input"
+              type="text"
+              class="form-control"
+              placeholder="Shorten a Link Here..."
+              aria-label="Shorten a Link Here..."
+              aria-describedby="Shortener-Input"
+            />
+
+            <div id="toolLoader" class="loader"></div>
+            <button
+              id="shortenBtn"
+              class="btn greenBtn"
+              type="button"
+              id="Shortener-Input"
+            >
+              Shorten
+            </button>
+          </div>
+        </div>
+        <div class="resultsWrapper">
+          <div class="card">
+            <ul class="list-group">
+              <!-- When Empty show this -->
+              <p class="isEmpty hide">Looks Like the storage is empty...</p>
+              <!-------------------------->
+            </ul>
+          </div>
+        </div>
+        <div class="btnWrapper">
+          <button id="clear">CLEAR ALL</button>
+          <button class="greenBtn" id="exportTxt">EXPORT AS TXT FILE</button>
+          <div id="counter">
+            <h1>4</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--**********************************
+            HOOKS MARKETING SECTION
+                (What we offer)
+      ************************************* -->
+
+    <section class="hook">
+      <div class="text-wrap introTextWrapper mb-5">
+        <h1>Advanced Statistics</h1>
+        <p>
+          Track how your links are performing across the web with our advanced
+          statistics dashboard.
+        </p>
+      </div>
+
+      <div class="row container m-auto p-0 row-cols-1 row-cols-md-3 g-4">
+        <div class="col-lg-4 col-md-12">
+          <div class="card h-100">
+            <img
+              src="images/hook/grow.svg"
+              class="card-img-top"
+              alt="scale your business"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Brand Recognition</h5>
+              <p class="card-text">
+                Boost your brand recognition with each click. Generic links
+                don't mean a thing. Branded links help instill confidence in
+                your content.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <div class="card h-100">
+            <img
+              src="images/hook/compass.svg"
+              class="card-img-top"
+              alt="compass for direction"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Detailed Records</h5>
+              <p class="card-text">
+                Gain insights into who is clicking your links. Knowing when and
+                where people engage with your content helps inform better
+                decisions
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <div class="card h-100">
+            <img
+              src="images/hook/tools.svg"
+              class="card-img-top"
+              alt="plenty of tools to customize your engagement techniques"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Fully Customizable</h5>
+              <p class="card-text">
+                Improve brand awareness and content discoverability through
+                customizable links, supercharging audience engagement.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="people">
+        <img src="images/hook/personLearning.svg" alt="person Learning" />
+        <img src="images/hook/personTeaching.svg" alt="person teaching" />
+      </div>
+    </section>
+
+    <!--**********************************
+            Direct Link Marketing Section
+                (Motivation to start)
+      ************************************* -->
+    <section class="link">
+      <h1>Boost your links today</h1>
+      <button class="greenBtn signUp">Join Now</button>
+    </section>
+
+    <!--**********************************
+                A little about me
+      ************************************* -->
+
+    <section class="contactSection">
+      <a href="#">
+        <div class="backTop"><img src="images/arrow.png" alt="arrow" /></div>
+      </a>
+      <div class="coderInfo">
+        <h1><span>Email</span> : AbNassif99@gmail.com</h1>
+        <p>
+          This site was created by me(<em>Abdullah Bou Nassif</em>). I took the
+          design of one of the projects present in front end mentor and modified
+          it by changing the color theme, creating new svg's, shifting the
+          layout and adding plenty of more features to it.<br /><br />
+          If you stumbled upon this, thank you for your time! I still have
+          plenty of more complex projects to show, please feel free to check my
+          out my portfolio
+          <a class="portfolioLink" href="https://github.com/AbNassif"
+            ><bold>Here</bold></a
+          >
+          or contact my email if you have any questions.
+        </p>
+      </div>
+    </section>
+
+    <!-- BootStrap script cdn -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- JAVASCRIPT SCRIPTS -->
+    <script>
+      var loadFirst = document.querySelector(".loadFirst");
+      var loadingScreen = document.getElementById("loadingScreen");
+
+      loadFirst.onload = function () {
+        loadingFinished();
+      };
+
+      function loadingFinished() {
+        console.log("hello");
+        document.body.classList.remove("stopScroll");
+        loadingScreen.classList.add("hide");
+        loadFirst.classList.add = "startAnimation";
+        return "done";
+      }
+
+      loadingFinished();
+    </script>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
